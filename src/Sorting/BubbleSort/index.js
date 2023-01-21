@@ -1,6 +1,6 @@
-import SortingOrder from "../SortingOrder";
+import SortingOrder from "../SortingOrder.js";
 
-function bubbleSort(elems, comparator = (a, b) => a - b, sortingOrder = SortingOrder.ASCENDING) {
+export default function bubbleSort(elems, sortingOrder = SortingOrder.ASCENDING, comparator = (a, b) => a - b) {
   const result = [...elems];
   const isOrdered = sortingOrder;
   for (let i = 1; i < result.length; i++) {
@@ -13,6 +13,3 @@ function bubbleSort(elems, comparator = (a, b) => a - b, sortingOrder = SortingO
   }
   return result;
 };
-
-
-export { bubbleSort }
