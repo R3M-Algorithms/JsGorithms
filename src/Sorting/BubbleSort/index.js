@@ -1,14 +1,18 @@
-export default function bubbleSort (elems) {
+import SortingOrder from "../SortingOrder";
+
+function bubbleSort(elems, comparator = (a, b) => a - b, sortingOrder = SortingOrder.ASCENDING) {
   const result = [...elems];
-  let should_continue = true;
-  while (should_continue) {
-    should_continue = false;
-    for (let i = 1; i < result.length; i++) {
-      if (result[i] < result[i - 1]) {
-        [result[i], result[i - 1]] = [result[i - 1], result[i]];
-        should_continue = true;
+  const isOrdered = sortingOrder;
+  for (let i = 1; i < result.length; i++) {
+    for (let j = 0; j < result.length; j++) {
+      const comparatorResult = comparator(result[i], result[j]);
+      if (!isOrdered(comparatorResult)) {
+        [result[i], result[j]] = [result[j], result[i]];        
       }
     }
   }
   return result;
 };
+
+
+export { bubbleSort }
