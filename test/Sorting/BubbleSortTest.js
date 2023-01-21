@@ -78,7 +78,7 @@ import SortingOrder from "../../src/Sorting/SortingOrder.js";
         const numbers = Array.from({length: elemCount}, u => ({age: 1 + Math.trunc(Math.random() * 100)}))
 
         // Act
-        const result = bubbleSort(numbers, SortingOrder.DESCENDING, (a, b) => a.age - b.age);
+        const result = bubbleSort(numbers, SortingOrder.DESCENDING, (a, b) => a - b);
 
         // Assert
         expect(result).lengthOf(elemCount);
